@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeknoM8 - Your Underground Tribe</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#9D00FF',secondary:'#00FF00'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: futura-pt, sans-serif;
+background-color: #0D0D0D;
+color: #FAFAFA;
+}
+.accent-text {
+color: #9D00FF;
+}
+.hero-gradient {
+background: linear-gradient(to right, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.2));
+}
+.neon-glow {
+text-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(13, 255, 156, 0.5);
+}
+.neon-border {
+box-shadow: 0 0 5px rgba(0, 255, 0, 0.5), 0 0 10px rgba(13, 255, 156, 0.3);
+}
+.event-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 0 15px rgba(177, 13, 201, 0.4), 0 0 30px rgba(63, 157, 247, 0.2);
+}
+input:focus, button:focus {
+outline: none;
+box-shadow: 0 0 0 2px rgba(177, 13, 201, 0.5), 0 0 10px rgba(0, 255, 198, 0.3);
+}
+.toggle-checkbox:checked {
+right: 0;
+background-color: #8A2BE2;
+}
+.toggle-checkbox:checked + .toggle-label {
+background-color: rgba(138, 43, 226, 0.3);
+}
+.custom-scrollbar::-webkit-scrollbar {
+width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+background: #1a1a2e;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+background: #B10DC9;
+border-radius: 8px;
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-opacity-90 bg-[#0a0a14] backdrop-blur-md border-b border-[#2a2a3a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex-shrink-0 flex flex-col items-start">
+<span class="text-2xl font-['Exo'] font-black text-[#00FF00] tracking-tight">TeknoM8</span>
+<span class="text-sm text-gray-400">Discover. Connect. RAVE.</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-home-5-line"></i>
+</div>
+<span>Home</span>
+</a>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-calendar-event-line"></i>
+</div>
+<span>Events</span>
+</a>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-group-line"></i>
+</div>
+<span>Community</span>
+</a>
+<a href="#" class="text-white hover:text-primary transition-colors flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-music-2-line"></i>
+</div>
+<span>Artists</span>
+</a>
+<a href="#" class="text-[#00FF00] hover:text-primary transition-colors flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-live-line"></i>
+</div>
+<span>Live Streams</span>
+</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<div class="w-4 h-4 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<input type="text" class="py-2 pl-10 pr-4 w-64 bg-[#1a1a2e] border-none !rounded-button text-sm text-white placeholder-gray-400 focus:ring-2 focus:ring-primary transition-all" placeholder="Search events, artists, or tracks...">
+</div>
+<button class="relative p-1 rounded-full text-white hover:text-primary focus:outline-none">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-notification-3-line"></i>
+</div>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-primary"></span>
+</button>
+<div class="flex items-center">
+<button class="flex items-center space-x-2 focus:outline-none">
+<img class="h-8 w-8 rounded-full object-cover" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20man%20with%20stylish%20haircut%2C%20high%20quality%20professional%20headshot%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=100&height=100&seq=1&orientation=squarish" alt="User profile">
+<span class="hidden md:block text-sm font-medium">Alex Morgan</span>
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-16 overflow-hidden">
+<div class="bg-primary/20 text-white py-2 text-center font-medium flex items-center justify-center gap-4">
+<span>🎉 First 100 members get FREE lifetime access!</span>
+<div class="flex items-center gap-2">
+<div class="bg-[#1a1a2e] px-2 py-1 rounded">
+<span id="countdown-days" class="font-bold">00</span>d
+</div>
+<div class="bg-[#1a1a2e] px-2 py-1 rounded">
+<span id="countdown-hours" class="font-bold">00</span>h
+</div>
+<div class="bg-[#1a1a2e] px-2 py-1 rounded">
+<span id="countdown-minutes" class="font-bold">00</span>m
+</div>
+<div class="bg-[#1a1a2e] px-2 py-1 rounded">
+<span id="countdown-seconds" class="font-bold">00</span>s
+</div>
+</div>
+<span class="text-[#00FF00] animate-pulse">Only 47 spots left!</span>
+</div>
+<div style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20techno%20music%20festival%20with%20vibrant%20neon%20lights%2C%20laser%20beams%20in%20purple%20and%20blue%20colors%20illuminating%20a%20large%20crowd%20of%20people%20dancing%2C%20high%20energy%20atmosphere%2C%20professional%20photography%20with%20dramatic%20lighting%2C%20wide%20angle%20shot%20showing%20the%20entire%20venue%20with%20DJ%20booth%20in%20the%20background%2C%20cinematic%20composition%20with%20perfect%20focus%20and%20depth%20of%20field&width=1920&height=800&seq=2&orientation=landscape');" class="absolute inset-0 bg-cover bg-center bg-no-repeat">
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-bold tracking-tight text-white mb-6 neon-glow">Find Your Rave<br><span class="text-primary">Find Your Tribe</span></h1>
+<p class="text-xl text-gray-200 mb-8">Where the underground comes alive. Link up with your future rave fam, discover secret warehouse parties, and keep the beat going till sunrise. No raver left behind.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all whitespace-nowrap flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-user-add-line"></i>
+</div>
+Join Now
+</button>
+<button class="bg-transparent border border-white hover:border-primary hover:text-primary text-white px-6 py-3 !rounded-button font-medium transition-all whitespace-nowrap flex items-center gap-2">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-play-circle-line"></i>
+</div>
+Watch Intro
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Events Section -->
+<section class="py-16 bg-[#0f0f1a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl font-bold text-white">Upcoming Events</h2>
+<div class="flex items-center space-x-4">
+<div class="relative inline-block w-48">
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<div class="w-4 h-4 flex items-center justify-center text-gray-400">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+<button class="appearance-none bg-[#1a1a2e] border-none text-white py-2 px-4 pr-8 !rounded-button w-full text-left">
+All Locations
+</button>
+</div>
+<button class="bg-[#1a1a2e] hover:bg-[#2a2a3a] text-white px-4 py-2 !rounded-button whitespace-nowrap flex items-center gap-2">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-filter-3-line"></i>
+</div>
+Filters
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Event Card 1 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg event-card transition-all duration-300">
+<div class="relative">
+<img class="w-full h-48 object-cover object-top" src="https://readdy.ai/api/search-image?query=techno%20music%20event%20in%20Berlin%20with%20dark%20atmosphere%2C%20blue%20and%20purple%20lighting%2C%20crowd%20dancing%20to%20electronic%20music%2C%20professional%20nightclub%20photography%2C%20wide%20angle%20view%20of%20the%20venue%20with%20DJ%20booth%20visible%2C%20high%20quality%20image%20with%20perfect%20lighting%20and%20composition&width=600&height=400&seq=3&orientation=landscape" alt="Techno event in Berlin">
+<div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+TRENDING
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Berghain Techno Night</h3>
+<p class="text-gray-300 text-sm">Berlin, Germany</p>
+</div>
+<div class="bg-[#2a2a3a] text-white text-sm px-3 py-2 rounded-md">
+May 10
+</div>
+</div>
+<div class="flex items-center mb-4 text-sm text-gray-300">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span>23:00 - 08:00</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-user-line"></i>
+</div>
+<span>1.2k Going</span>
+</div>
+</div>
+<div class="flex -space-x-2 mb-4">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=4&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20glasses%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=5&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20curly%20hair%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=6&orientation=squarish" alt="Attendee">
+<div class="w-8 h-8 rounded-full bg-[#2a2a3a] border-2 border-[#1a1a2e] flex items-center justify-center text-xs text-white">
++42
+</div>
+</div>
+<div class="flex justify-between">
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all whitespace-nowrap flex-1 mr-2">RSVP</button>
+<button class="bg-transparent border border-gray-600 hover:border-primary hover:text-primary text-white px-3 py-2 !rounded-button transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-bookmark-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg event-card transition-all duration-300">
+<div class="relative">
+<img class="w-full h-48 object-cover object-top" src="https://readdy.ai/api/search-image?query=underground%20techno%20party%20in%20Amsterdam%20with%20green%20laser%20lights%2C%20smoke%20effects%2C%20packed%20dance%20floor%2C%20professional%20nightclub%20photography%2C%20wide%20angle%20view%20of%20the%20venue%20with%20DJ%20booth%20visible%2C%20high%20quality%20image%20with%20perfect%20lighting%20and%20composition&width=600&height=400&seq=7&orientation=landscape" alt="Techno event in Amsterdam">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Awakenings Festival</h3>
+<p class="text-gray-300 text-sm">Amsterdam, Netherlands</p>
+</div>
+<div class="bg-[#2a2a3a] text-white text-sm px-3 py-2 rounded-md">
+May 15
+</div>
+</div>
+<div class="flex items-center mb-4 text-sm text-gray-300">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span>22:00 - 06:00</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-user-line"></i>
+</div>
+<span>876 Going</span>
+</div>
+</div>
+<div class="flex -space-x-2 mb-4">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20short%20hair%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=8&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20blonde%20hair%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=9&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20dark%20hair%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=10&orientation=squarish" alt="Attendee">
+<div class="w-8 h-8 rounded-full bg-[#2a2a3a] border-2 border-[#1a1a2e] flex items-center justify-center text-xs text-white">
++31
+</div>
+</div>
+<div class="flex justify-between">
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all whitespace-nowrap flex-1 mr-2">RSVP</button>
+<button class="bg-transparent border border-gray-600 hover:border-primary hover:text-primary text-white px-3 py-2 !rounded-button transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-bookmark-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg event-card transition-all duration-300">
+<div class="relative">
+<img class="w-full h-48 object-cover object-top" src="https://readdy.ai/api/search-image?query=techno%20music%20festival%20in%20Detroit%20with%20red%20and%20blue%20lighting%2C%20industrial%20venue%2C%20crowd%20dancing%20to%20electronic%20music%2C%20professional%20nightclub%20photography%2C%20wide%20angle%20view%20of%20the%20venue%20with%20DJ%20booth%20visible%2C%20high%20quality%20image%20with%20perfect%20lighting%20and%20composition&width=600&height=400&seq=11&orientation=landscape" alt="Techno event in Detroit">
+<div class="absolute top-4 right-4 bg-secondary text-[#1a1a2e] text-xs font-bold px-3 py-1 rounded-full">
+NEW
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-1">Movement Detroit</h3>
+<p class="text-gray-300 text-sm">Detroit, USA</p>
+</div>
+<div class="bg-[#2a2a3a] text-white text-sm px-3 py-2 rounded-md">
+May 24
+</div>
+</div>
+<div class="flex items-center mb-4 text-sm text-gray-300">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span>20:00 - 04:00</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center mr-1 text-primary">
+<i class="ri-user-line"></i>
+</div>
+<span>654 Going</span>
+</div>
+</div>
+<div class="flex -space-x-2 mb-4">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20headphones%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=12&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20tattoos%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=13&orientation=squarish" alt="Attendee">
+<img class="w-8 h-8 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20person%20with%20piercings%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=50&height=50&seq=14&orientation=squarish" alt="Attendee">
+<div class="w-8 h-8 rounded-full bg-[#2a2a3a] border-2 border-[#1a1a2e] flex items-center justify-center text-xs text-white">
++24
+</div>
+</div>
+<div class="flex justify-between">
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all whitespace-nowrap flex-1 mr-2">RSVP</button>
+<button class="bg-transparent border border-gray-600 hover:border-primary hover:text-primary text-white px-3 py-2 !rounded-button transition-all">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-bookmark-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<button class="bg-transparent border border-gray-600 hover:border-primary hover:text-primary text-white px-6 py-3 !rounded-button font-medium transition-all whitespace-nowrap">
+View All Events
+</button>
+</div>
+</div>
+</section>
+<!-- Trending Artists Section -->
+<section class="py-16 bg-[#0a0a14]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-bold text-white mb-10">Trending Artists</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Artist 1 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20female%20DJ%20with%20headphones%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=15&orientation=squarish" alt="DJ Charlotte de Witte">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Charlotte de Witte</h3>
+<p class="text-gray-400 text-sm">12.5k followers</p>
+</div>
+<!-- Artist 2 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20male%20DJ%20with%20headphones%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=16&orientation=squarish" alt="DJ Amelie Lens">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Amelie Lens</h3>
+<p class="text-gray-400 text-sm">10.2k followers</p>
+</div>
+<!-- Artist 3 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20male%20DJ%20with%20beard%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=17&orientation=squarish" alt="DJ Adam Beyer">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Adam Beyer</h3>
+<p class="text-gray-400 text-sm">9.8k followers</p>
+</div>
+<!-- Artist 4 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20male%20DJ%20with%20sunglasses%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=18&orientation=squarish" alt="DJ Carl Cox">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Carl Cox</h3>
+<p class="text-gray-400 text-sm">15.3k followers</p>
+</div>
+<!-- Artist 5 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20female%20DJ%20with%20long%20hair%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=19&orientation=squarish" alt="DJ Nina Kraviz">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Nina Kraviz</h3>
+<p class="text-gray-400 text-sm">11.7k followers</p>
+</div>
+<!-- Artist 6 -->
+<div class="text-center group">
+<div class="relative mb-4 overflow-hidden rounded-full">
+<img class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-110" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20male%20DJ%20with%20short%20hair%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=300&height=300&seq=20&orientation=squarish" alt="DJ Richie Hawtin">
+<div class="absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+<button class="w-12 h-12 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<div class="w-6 h-6 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<h3 class="text-white font-medium">Richie Hawtin</h3>
+<p class="text-gray-400 text-sm">8.9k followers</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Streams Section -->
+<section class="py-16 bg-[#0f0f1a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl font-bold text-white flex items-center gap-3">
+Live Streams
+<div class="w-3 h-3 rounded-full bg-[#00FF00] animate-pulse shadow-[0_0_8px_#00FF00]"></div>
+</h2>
+<button class="text-primary hover:text-white transition-colors flex items-center gap-2">
+<span>View All</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stream 1 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=female%20DJ%20performing%20at%20night%20club%20with%20neon%20purple%20lights%20and%20smoke%20effects%2C%20professional%20event%20photography%20showing%20DJ%20equipment%20and%20hands%20on%20mixer%2C%20cinematic%20shot%20with%20perfect%20lighting&width=600&height=400&seq=44&orientation=landscape" alt="Live DJ Set" class="w-full h-48 object-cover">
+<div class="absolute top-3 left-3 flex items-center gap-2">
+<div class="bg-red-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+LIVE
+</div>
+<div class="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full">
+2.4k watching
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20female%20DJ%20with%20headphones%2C%20studio%20lighting%2C%20neutral%20expression&width=100&height=100&seq=45&orientation=squarish" alt="DJ">
+<div>
+<h3 class="text-white font-medium">Nina Waves</h3>
+<p class="text-sm text-gray-400">Deep Techno Session</p>
+</div>
+</div>
+<button class="text-primary hover:text-[#00FF00] transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-notification-3-line"></i>
+</div>
+</button>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-400">Started 45 minutes ago</span>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button font-medium transition-all whitespace-nowrap text-sm">Join Stream</button>
+</div>
+</div>
+<div class="absolute inset-0 border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+</div>
+<!-- Stream 2 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=male%20DJ%20performing%20in%20dark%20studio%20with%20green%20laser%20lights%20and%20fog%2C%20professional%20photography%20showing%20DJ%20equipment%20and%20hands%20on%20turntables%2C%20moody%20atmospheric%20shot&width=600&height=400&seq=46&orientation=landscape" alt="Live DJ Set" class="w-full h-48 object-cover">
+<div class="absolute top-3 left-3 flex items-center gap-2">
+<div class="bg-red-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+LIVE
+</div>
+<div class="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full">
+1.8k watching
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20male%20DJ%20with%20beard%2C%20studio%20lighting%2C%20neutral%20expression&width=100&height=100&seq=47&orientation=squarish" alt="DJ">
+<div>
+<h3 class="text-white font-medium">Techno Theory</h3>
+<p class="text-sm text-gray-400">Live Production Session</p>
+</div>
+</div>
+<button class="text-primary hover:text-[#00FF00] transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-notification-3-line"></i>
+</div>
+</button>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-400">Started 2 hours ago</span>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button font-medium transition-all whitespace-nowrap text-sm">Join Stream</button>
+</div>
+</div>
+<div class="absolute inset-0 border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+</div>
+<!-- Stream 3 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden group relative">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=DJ%20duo%20performing%20with%20massive%20LED%20wall%20displaying%20purple%20and%20green%20visuals%2C%20professional%20event%20photography%20showing%20full%20DJ%20booth%20setup%2C%20wide%20angle%20dramatic%20shot&width=600&height=400&seq=48&orientation=landscape" alt="Live DJ Set" class="w-full h-48 object-cover">
+<div class="absolute top-3 left-3 flex items-center gap-2">
+<div class="bg-red-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+LIVE
+</div>
+<div class="bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full">
+3.1k watching
+</div>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary" src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20DJ%20duo%2C%20studio%20lighting%2C%20neutral%20expression&width=100&height=100&seq=49&orientation=squarish" alt="DJ">
+<div>
+<h3 class="text-white font-medium">Synth Sisters</h3>
+<p class="text-sm text-gray-400">Hardware Jam Session</p>
+</div>
+</div>
+<button class="text-primary hover:text-[#00FF00] transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-notification-3-line"></i>
+</div>
+</button>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-gray-400">Started 30 minutes ago</span>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button font-medium transition-all whitespace-nowrap text-sm">Join Stream</button>
+</div>
+</div>
+<div class="absolute inset-0 border-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Groups Section -->
+<section class="py-16 bg-[#0f0f1a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl font-bold text-white">Community Groups</h2>
+<button class="text-primary hover:text-white transition-colors flex items-center gap-2">
+<span>Browse All Groups</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Group 1 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=dark%20moody%20techno%20warehouse%20party%20with%20neon%20lights%20and%20smoke%2C%20professional%20event%20photography%2C%20wide%20angle%20shot%20showing%20industrial%20space%20and%20crowd&width=600&height=300&seq=26&orientation=landscape" alt="Berlin Techno Collective" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-xl font-bold text-white">Berlin Techno Collective</h3>
+<p class="text-sm text-gray-300">12.5k members</p>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=27&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=28&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=29&orientation=squarish" alt="Member">
+</div>
+<span class="text-gray-400 text-sm ml-2">+45 online</span>
+</div>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button text-sm font-medium transition-all whitespace-nowrap">Join Group</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=30&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">Just announced: Warehouse techno night this Friday at Tresor! Who's in? 🔊</p>
+<span class="text-gray-500 text-xs">2h ago</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=31&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">New mix dropping tomorrow. Pure Berlin underground vibes.</p>
+<span class="text-gray-500 text-xs">5h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Group 2 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=modern%20techno%20music%20studio%20with%20synthesizers%20and%20equipment%2C%20professional%20photography%2C%20moody%20lighting%20with%20blue%20and%20purple%20accents&width=600&height=300&seq=32&orientation=landscape" alt="Techno Producers Hub" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-xl font-bold text-white">Techno Producers Hub</h3>
+<p class="text-sm text-gray-300">8.3k members</p>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=33&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=34&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=35&orientation=squarish" alt="Member">
+</div>
+<span class="text-gray-400 text-sm ml-2">+32 online</span>
+</div>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button text-sm font-medium transition-all whitespace-nowrap">Join Group</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=36&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">Anyone using the new Moog synth? Share your patches!</p>
+<span class="text-gray-500 text-xs">1h ago</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=37&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">Tutorial: Creating that perfect warehouse kick 🥁</p>
+<span class="text-gray-500 text-xs">3h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Group 3 -->
+<div class="bg-[#1a1a2e] rounded-lg overflow-hidden">
+<div class="relative h-40">
+<img src="https://readdy.ai/api/search-image?query=underground%20vinyl%20record%20store%20with%20neon%20lighting%2C%20rows%20of%20techno%20records%2C%20professional%20interior%20photography%20with%20moody%20atmosphere&width=600&height=300&seq=38&orientation=landscape" alt="Vinyl Collectors Circle" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="text-xl font-bold text-white">Vinyl Collectors Circle</h3>
+<p class="text-sm text-gray-300">5.7k members</p>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=39&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=40&orientation=squarish" alt="Member">
+<img class="w-6 h-6 rounded-full border-2 border-[#1a1a2e]" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=41&orientation=squarish" alt="Member">
+</div>
+<span class="text-gray-400 text-sm ml-2">+19 online</span>
+</div>
+<button class="bg-primary hover:bg-opacity-90 text-white px-4 py-1 !rounded-button text-sm font-medium transition-all whitespace-nowrap">Join Group</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=42&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">Found this rare Detroit pressing from '95! 💿</p>
+<span class="text-gray-500 text-xs">4h ago</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<img class="w-8 h-8 rounded-full" src="https://readdy.ai/api/search-image?query=professional%20headshot%20portrait%20minimalist%20background%20perfect%20for%20profile&width=50&height=50&seq=43&orientation=squarish" alt="Member">
+<div>
+<p class="text-gray-300 text-sm">Record fair this weekend at Funkhaus! Who's coming?</p>
+<span class="text-gray-500 text-xs">6h ago</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Section -->
+<section class="py-16 bg-[#0f0f1a]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-3xl font-bold text-white">Community Highlights</h2>
+<button class="text-primary hover:text-white transition-colors flex items-center gap-2">
+<span>View All</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Community Post 1 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img class="h-10 w-10 rounded-full mr-4" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20woman%20with%20colorful%20hair%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=100&height=100&seq=21&orientation=squarish" alt="User profile">
+<div>
+<h3 class="text-white font-medium">Emma Richards</h3>
+<p class="text-gray-400 text-sm">2 hours ago</p>
+</div>
+</div>
+<p class="text-gray-300 mb-4">Just experienced the most incredible set by Charlotte de Witte at Printworks London. The energy was absolutely insane! Anyone else catch it? #TechnoLife #CharlotteDeWitte</p>
+<img class="w-full h-48 object-cover rounded mb-4" src="https://readdy.ai/api/search-image?query=techno%20music%20event%20at%20Printworks%20London%20with%20blue%20and%20purple%20lighting%2C%20crowd%20dancing%20to%20electronic%20music%2C%20professional%20nightclub%20photography%2C%20wide%20angle%20view%20of%20the%20venue%20with%20DJ%20booth%20visible%2C%20high%20quality%20image%20with%20perfect%20lighting%20and%20composition&width=600&height=300&seq=22&orientation=landscape" alt="Techno event at Printworks">
+<div class="flex justify-between text-gray-400">
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-heart-line"></i>
+</div>
+<span>124</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-chat-1-line"></i>
+</div>
+<span>32</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-share-line"></i>
+</div>
+<span>Share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Community Post 2 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img class="h-10 w-10 rounded-full mr-4" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20man%20with%20beard%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=100&height=100&seq=23&orientation=squarish" alt="User profile">
+<div>
+<h3 class="text-white font-medium">Marcus Jensen</h3>
+<p class="text-gray-400 text-sm">5 hours ago</p>
+</div>
+</div>
+<p class="text-gray-300 mb-4">Looking for recommendations on the best techno clubs in Barcelona. Planning a trip next month and want to experience the local scene. Any must-visit venues? #TechnoTravel #Barcelona</p>
+<div class="bg-[#2a2a3a] rounded p-4 mb-4">
+<div class="flex items-center mb-2">
+<div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+<i class="ri-question-line"></i>
+</div>
+<span class="text-white font-medium">Poll: Best Techno Clubs in Barcelona</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center">
+<div class="relative flex-1 h-8 bg-[#1a1a2e] rounded overflow-hidden mr-3">
+<div class="absolute h-full bg-primary bg-opacity-30" style="width: 65%"></div>
+<div class="absolute inset-0 flex items-center px-3">
+<span class="text-white text-sm">Input Club</span>
+</div>
+</div>
+<span class="text-white text-sm">65%</span>
+</div>
+<div class="flex items-center">
+<div class="relative flex-1 h-8 bg-[#1a1a2e] rounded overflow-hidden mr-3">
+<div class="absolute h-full bg-primary bg-opacity-30" style="width: 22%"></div>
+<div class="absolute inset-0 flex items-center px-3">
+<span class="text-white text-sm">Nitsa</span>
+</div>
+</div>
+<span class="text-white text-sm">22%</span>
+</div>
+<div class="flex items-center">
+<div class="relative flex-1 h-8 bg-[#1a1a2e] rounded overflow-hidden mr-3">
+<div class="absolute h-full bg-primary bg-opacity-30" style="width: 13%"></div>
+<div class="absolute inset-0 flex items-center px-3">
+<span class="text-white text-sm">Moog</span>
+</div>
+</div>
+<span class="text-white text-sm">13%</span>
+</div>
+</div>
+<p class="text-gray-400 text-sm mt-3">86 votes • 2 days left</p>
+</div>
+<div class="flex justify-between text-gray-400">
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-heart-line"></i>
+</div>
+<span>78</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-chat-1-line"></i>
+</div>
+<span>45</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-share-line"></i>
+</div>
+<span>Share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Community Post 3 -->
+<div class="bg-[#1a1a2e] rounded overflow-hidden shadow-lg">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<img class="h-10 w-10 rounded-full mr-4" src="https://readdy.ai/api/search-image?query=portrait%20of%20a%20young%20person%20with%20glasses%2C%20professional%20studio%20lighting%2C%20neutral%20expression%2C%20minimalist%20background%2C%20perfect%20for%20profile%20picture&width=100&height=100&seq=24&orientation=squarish" alt="User profile">
+<div>
+<h3 class="text-white font-medium">Sophia Chen</h3>
+<p class="text-gray-400 text-sm">Yesterday</p>
+</div>
+</div>
+<p class="text-gray-300 mb-4">Just released my new techno track "Neural Pathways" on SoundCloud. Would love to get some feedback from fellow techno enthusiasts! Link in comments. #TechnoProducer #NewMusic</p>
+<div class="bg-[#2a2a3a] rounded p-4 mb-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-3">
+<div class="w-5 h-5 flex items-center justify-center text-white">
+<i class="ri-play-fill"></i>
+</div>
+</div>
+<div>
+<h4 class="text-white text-sm font-medium">Neural Pathways</h4>
+<p class="text-gray-400 text-xs">Sophia Chen • 6:42</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-download-line"></i>
+</div>
+</button>
+<button class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-more-2-fill"></i>
+</div>
+</button>
+</div>
+</div>
+<div class="mt-3">
+<div class="relative h-1 bg-[#1a1a2e] rounded-full">
+<div class="absolute h-full bg-primary rounded-full" style="width: 35%"></div>
+</div>
+</div>
+</div>
+<div class="flex justify-between text-gray-400">
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-heart-line"></i>
+</div>
+<span>203</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-chat-1-line"></i>
+</div>
+<span>67</span>
+</button>
+<button class="flex items-center hover:text-primary transition-colors">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-share-line"></i>
+</div>
+<span>Share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Join Community Section -->
+<section class="py-20 bg-[#0a0a14] relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20techno%20music%20visualization%20with%20purple%20and%20blue%20neon%20colors%2C%20digital%20wave%20patterns%2C%20futuristic%20design%2C%20minimalist%20style%2C%20perfect%20for%20background%2C%20high%20quality%20render%20with%20perfect%20composition&width=1920&height=600&seq=25&orientation=landscape'); background-size: cover; background-position: center;"></div>
+<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-4xl font-bold text-white mb-6 neon-glow">Join The Late Night Society</h2>
+<p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">Link up with thousands of ravers who live for the underground. From warehouse parties to sunrise sets, find your people and keep the vibe alive.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 max-w-lg mx-auto">
+<input type="email" placeholder="Enter your email" class="flex-1 py-3 px-4 bg-[#1a1a2e] border-none !rounded-button text-white placeholder-gray-400">
+<button class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all whitespace-nowrap">Get Started</button>
+</div>
+<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl font-bold text-white mb-2">15K+</div>
+<p class="text-gray-400">Active Members</p>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-white mb-2">500+</div>
+<p class="text-gray-400">Events Monthly</p>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-white mb-2">120+</div>
+<p class="text-gray-400">Cities Worldwide</p>
+</div>
+<div class="text-center">
+<div class="text-4xl font-bold text-white mb-2">2K+</div>
+<p class="text-gray-400">Artists Connected</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0a0a14] border-t border-[#2a2a3a] py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<span class="text-2xl font-['Exo'] font-black text-[#00FF00] mb-4 block tracking-tight">TeknoM8</span>
+<p class="text-gray-400 mb-4">Your mate in the underground scene. We're here for the late-night adventurers, the bass chasers, and everyone who lives for that 3am magic.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-facebook-circle-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-twitter-x-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-primary transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-soundcloud-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Navigation</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Events</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Artists</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Community</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Music</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Support</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Help Center</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Safety Center</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Community Guidelines</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Legal</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Cookie Policy</a></li>
+<li><a href="#" class="text-gray-400 hover:text-primary transition-colors">GDPR</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-[#2a2a3a] flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 <span class="text-[#00FF00]">TeknoM8</span>. For The Underground.</p>
+<div class="flex items-center space-x-4">
+<div class="flex items-center text-gray-500">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-visa-fill"></i>
+</div>
+</div>
+<div class="flex items-center text-gray-500">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-mastercard-fill"></i>
+</div>
+</div>
+<div class="flex items-center text-gray-500">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-paypal-fill"></i>
+</div>
+</div>
+<div class="flex items-center text-gray-500">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-apple-fill"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Countdown Timer
+const countdownDate = new Date();
+countdownDate.setDate(countdownDate.getDate() + 3);
+
+function updateCountdown() {
+const now = new Date().getTime();
+const distance = countdownDate - now;
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Mobile menu toggle
+const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+if (mobileMenuButton && mobileMenu) {
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+}
+// Dropdown menus
+const dropdownButtons = document.querySelectorAll('.dropdown-button');
+dropdownButtons.forEach(button => {
+button.addEventListener('click', function() {
+const dropdown = this.nextElementSibling;
+dropdown.classList.toggle('hidden');
+});
+});
+});
+</script>
+</body>
+</html>
